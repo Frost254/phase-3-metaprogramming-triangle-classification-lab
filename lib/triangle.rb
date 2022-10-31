@@ -21,7 +21,8 @@ class Triangle
 
   def true_triangle
     actual_triangle = [(length + width > hypotenuse), (length + hypotenuse > width), (width + hypotenuse > length)]
-    [length, width, hypotenuse].each do |side|
+    sides = [length, width, hypotenuse]
+    sides.each do |side|
       actual_triangle << false if side <= 0 
     raise TriangleError if actual_triangle.include?(false)
     end
