@@ -9,7 +9,7 @@ class Triangle
   end
 
   def kind 
-    validate_triangle
+    true_triangle
       if (length == width && width == hypotenuse)
           :equilateral
         elsif (length == width || length == hypotenuse || hypotenuse == width)
@@ -19,11 +19,11 @@ class Triangle
       end
   end 
 
-  def validate_triangle
-    real_triangle = [(length + width > hypotenuse), (length + hypotenuse > width), (width + hypotenuse > length)]
+  def true_triangle
+    actual_triangle = [(length + width > hypotenuse), (length + hypotenuse > width), (width + hypotenuse > length)]
     [length, width, hypotenuse].each do |side|
-      real_triangle << false if side <= 0 
-    raise TriangleError if real_triangle.include?(false)
+      actual_triangle << false if side <= 0 
+    raise TriangleError if actual_triangle.include?(false)
     end
   end
 
